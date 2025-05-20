@@ -14,7 +14,7 @@ const Signup = () => {
     confirmPassword: ""
   };
 
-  const { isSuccess, isLoading } = useSelector((state) => state.auth);
+  const { isSignupSuccess, isLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialState);
@@ -49,7 +49,7 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isSignupSuccess) {
       navigate("/verify-email", {
         state: {
           email: formData?.email,
@@ -58,7 +58,7 @@ const Signup = () => {
       );
       dispatch(RESET());
     }
-  }, [isSuccess, navigate, dispatch]);
+  }, [isSignupSuccess, navigate, dispatch]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
