@@ -6,16 +6,11 @@ module.exports = async (email, subject, htmlTemplate) => {
       host: process.env.HOST,
       service: process.env.SERVICE,
       port: Number(process.env.PORT),
-      secure: process.env.SECURE === "true",
+      secure: Boolean(process.env.SECURE),
       auth: {
         user: process.env.USER,
         pass: process.env.PASS,
       },
-      tls: {
-        rejectUnauthorized: false,
-      },
-      // logger:true,
-      // debug: true,
     });
     await transporter.sendMail({
       from: `${process.env.USER}`,
