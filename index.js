@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://dairy-farm-ry3z.onrender.com",
     credentials: true,
   })
 );
