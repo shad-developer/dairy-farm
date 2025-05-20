@@ -11,6 +11,7 @@ const initialState = {
   isSuccess: false,
   isLoading: false,
   message: "",
+  isSignupSuccess:false,
   isPasswordResetSuccess: false,
 };
 
@@ -194,7 +195,7 @@ const authSlice = createSlice({
     })
     .addCase(signup.fulfilled, (state, action) => {
       state.isLoading = false;
-      state.isSuccess = true;
+      state.isSignupSuccess = true;
       state.isLoggedIn = false;
     })
     .addCase(signup.rejected, (state, action) => {
